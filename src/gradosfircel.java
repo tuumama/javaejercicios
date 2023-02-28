@@ -1,45 +1,29 @@
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class gradosfircel {
-
     public static void main(String[] args) {
-
-        Scanner sn = new Scanner(System.in);
-        boolean salir = false;
-        int cel;
-        int far;
-
-        while (!salir) {
-
-            System.out.println("1. Opcion 1");
-            System.out.println("2. Opcion 2");
-            System.out.println("4. Salir");
-
-            try {
-
-                System.out.println("Escribe una de las opciones");
-                opcion = sn.nextInt();
-
-                switch (cel) {
-                    case 1:
-                        System.out.println("Grados cel");
-                        break;
-                    case 2:
-                        System.out.println("Grados far");
-                        break;
-
-                    case 4:
-                        salir = true;
-                        break;
-                    default:
-                        System.out.println("Solo números entre 1 y 3");
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Debes ingresar número");
-                sn.next();
+        int x = 0;
+        Scanner leer = new Scanner(System.in);
+        do {
+            System.out.println("1: De grados Fahrenheit a Grados Centrigrados\n 2: De Grados Centigrados a Fahrenheit");
+            int gr = leer.nextInt();
+            switch (gr) {
+                case 1:
+                    System.out.println("Ingresa Grados Fahrenheit");
+                    Float f = leer.nextFloat();
+                    float r = (f - 32) * 5 / 9 % .2f;
+                    System.out.println("Los Grados Centigrados Son:" + r);
+                    break;
+                case 2:
+                    System.out.println("Ingresa Grados Centigrados");
+                    Float c = leer.nextFloat();
+                    float r1 = (c * 9 / 5) + 32 % .2f;
+                    System.out.println("Los Grados Centigrados Son:" + r1);
+                    break;
             }
-        }
+            System.out.println("Para Regresar ingresas el numero 3");
+            x = leer.nextInt();
+        } while (x == 3);
 
     }
 
